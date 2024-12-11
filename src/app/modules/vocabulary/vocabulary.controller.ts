@@ -4,6 +4,7 @@ import sendResponse from "../../utils/sendresponse";
 import { VocabularyService } from "./vocabulary.service";
 
 const addVocabulary = catchAsync(async (req: Request, res: Response) => {
+  // add vocabulary
   const vocabulary = await VocabularyService.createVocabulary(req.body);
   sendResponse(res, {
     statuseCode: 201,
