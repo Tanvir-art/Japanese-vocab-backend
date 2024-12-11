@@ -9,7 +9,6 @@ import notFound from "./app/middleware/notFound";
 import globalErrorHandler from "./app/middleware/globalErrorhandler";
 const app: Application = express();
 
-//parsers
 app.use(express.json());
 
 app.use(cors());
