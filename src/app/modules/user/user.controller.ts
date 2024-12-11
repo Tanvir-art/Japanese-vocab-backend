@@ -8,7 +8,7 @@ import { userModel } from "./user.model";
 
 const signUpUser = catchAsync(async (req: Request, res: Response) => {
   const result = await userService.signupUser(req.body);
-
+  // sign up
   sendResponse(res, {
     statuseCode: 200,
     success: true,
