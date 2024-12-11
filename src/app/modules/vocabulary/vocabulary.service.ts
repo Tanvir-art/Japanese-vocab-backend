@@ -19,7 +19,7 @@ const updateVocabulary = async (
 const deleteVocabulary = async (id: string) => {
   return await VocabularyModel.findByIdAndDelete(id);
 };
-
+// finish the service
 export const VocabularyService = {
   createVocabulary,
   getVocabulariesByLesson,
