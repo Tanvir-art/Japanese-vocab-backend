@@ -4,6 +4,7 @@ import { LessonService } from "./lesson.service";
 import sendResponse from "../../utils/sendresponse";
 
 const addLesson = catchAsync(async (req: Request, res: Response) => {
+  // create add lesson
   const lesson = await LessonService.createLesson(req.body);
   sendResponse(res, {
     statuseCode: 201,
