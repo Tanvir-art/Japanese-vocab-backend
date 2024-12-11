@@ -11,7 +11,6 @@ const auth = (...requiredRoles: UserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;
 
-    // Check if Authorization header is missing or not in Bearer format
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       throw new AppError(httpStatus.UNAUTHORIZED, "You are not authorized!");
     }
