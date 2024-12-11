@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import config from "../config";
-import { userModel } from "../modules/user/user.model";
 import catchAsync from "../utils/catchAsync";
 import AppError from "../error/AppError";
+import { userModel } from "../modules/user/user.model";
 import { UserRole } from "../modules/user/user.constant";
 
 const auth = (...requiredRoles: UserRole[]) => {
