@@ -60,19 +60,7 @@ const getUserByToken = catchAsync(async (req, res) => {
 
 const updateUser = catchAsync(async (req, res) => {
   // Retrieve the email of the authenticated user from the request
-  const userEmail = req?.user?.email;
-
-  // Find the user by email
-  const user = await userModel.findOne({ email: userEmail }); // Use findOne to get a single user object
-  console.log(user); // Log the user object
-
-  // Check if user exists
-  if (!user) {
-    throw new AppError(httpStatus.NOT_FOUND, "User not found");
-  }
-
-  // Retrieve the user ID from the user object
-  const { _id: userId } = user; // Destructure to get the user ID
+  const userId = req.params.id;
 
   // Call the service to update the user with the provided data
   const result = await userService.updateUserService(userId, req.body);

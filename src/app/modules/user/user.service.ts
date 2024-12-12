@@ -67,7 +67,7 @@ const getUserFromToken = async (tokenUseremail: string) => {
   return user;
 };
 
-const updateUserService = async (id: Types.ObjectId, data: Partial<user>) => {
+const updateUserService = async (id: string, data: Partial<user>) => {
   console.log(id);
 
   // Use findOneAndUpdate to find the user by id and update with the provided data

@@ -2,10 +2,20 @@ import { Request, Response } from "express";
 import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendresponse";
 import { VocabularyService } from "./vocabulary.service";
+import { LessonModel } from "../lessons/lesson.model";
 
 const addVocabulary = catchAsync(async (req: Request, res: Response) => {
-  // add vocabulary
+  // Add vocabulary
   const vocabulary = await VocabularyService.createVocabulary(req.body);
+
+  // Increment vocabularyCount for the associated lesson
+  await LessonModel.findByIdAndUpdate(
+    vocabulary.lessonId,
+    { $inc: { vocabularyCount: 1 } }, // Increment vocabularyCount by 1
+    { new: true } // Return the updated document
+  );
+
+  // Send response
   sendResponse(res, {
     statuseCode: 201,
     success: true,

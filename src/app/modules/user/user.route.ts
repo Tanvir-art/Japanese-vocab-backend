@@ -11,7 +11,7 @@ router.post("/signup", userController.signUpUser);
 
 router.post("/login", userController.loginUser);
 router.put(
-  "/update",
+  "/update/:id",
   auth(USER_ROLE.user, USER_ROLE.admin),
   validateRequest(userValidation.updateUserSchema),
   userController.updateUser
